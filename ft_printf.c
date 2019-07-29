@@ -1,14 +1,6 @@
+#include <stdio.h>
 #include "ft_printf.h"
-
-void	ft_ch(char c, ...)
-{
-    va_list args;
-    va_start(args, c);
-    if (c == 'd' || c == 'i')
-        //ft_putnbr()
-    va_end(args);
-}
-
+#include <stdarg.h>
 
 int ft_printf(const char *str, ...)
 {
@@ -20,12 +12,17 @@ int ft_printf(const char *str, ...)
         if (*str == '%')
         {
             str++;
-            ft_ch(*str, va_arg(args, `));
+            if (*str == 'd' || *str == 'i')
+                ft_putnbr(va_arg(args,int));
+            else if (*str == 's')
+                ft_putstr(va_arg(args, char *));
+            else if (*str == 'c')
+                ft_putchar(va_arg(args, int));
         }
         else
             ft_putchar(*str);
         str++;   
     }
     va_end(args);
-    return (0);
+	return (0);
 }

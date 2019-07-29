@@ -2,6 +2,6 @@
 
 int main(void)
 {
-    ft_printf("I love this series, don't you! %d%i\n", 20, 10);
+    ft_printf("I love this %c series, don't you! %d%i\n", 'H',20, 10);
     return (0);
 }
