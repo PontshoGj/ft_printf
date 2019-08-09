@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 13:11:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/05/28 16:32:28 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/07/31 12:27:17 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/07/31 12:31:47 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strchr(const char *s, int c)
+int		ft_pow(int a, int value)
 {
-	int		i;
-	char	*d;
+	int	i;
 
-	i = 0;
-	d = (char *)s;
-	while (d[i] != '\0')
+	i = 1;
+	if (a == 0)
+		return (1);
+	if (a == 1)
+		return (value);
+	while (a > 0)
 	{
-		if (d[i] == (char)c)
-		{
-			return (&d[i]);
-		}
-		i++;
+		i *= value;
+		a--;
 	}
-	if (d[i] == (char)c)
-		return (&d[i]);
-	return (NULL);
+	return (i);
 }
