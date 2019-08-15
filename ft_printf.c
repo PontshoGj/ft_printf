@@ -2,25 +2,25 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
-void    outint(char s, int c)
+void    outint(char s, va_list args)
 {
     if (s == 'c')
-        ft_putchar(c);
+        ft_putchar(va_arg(args, int));
     else
-        ft_putnbr(c);
+        ft_putnbr(va_arg(args, int));
 }
-void    outcharst(char s, char *str)
+void    outcharst(char s, va_list args)
 {
-    ft_putstr(str);
+    ft_putstr(va_arg(args, char *));
 }
 
-void    outuint(char s, unsigned int i)
+void    outuint(char s, va_list args)
 {
-
+    ft_putnbrlong(va_arg(args, unsigned int));
 }
-void    outdoub(char s, double i)
+void    outdoub(char s, va_list args)
 {
-
+    ft_putnbrlong(va_arg(args, long));
 }
 int ft_printf(const char *str, ...)
 {
@@ -32,10 +32,10 @@ int ft_printf(const char *str, ...)
         if (*str == '%')
         {
             str++;
-            (*str == 'd' || *str == 'i' || *str == 'c') ? outint(*str, va_arg(args, int)):0;
-            (*str == 's') ? outcharst(*str, va_arg(args, char *)):0;
-            (*str == 'o' || *str == 'x' || *str == 'X' || *str == 'u') ? outuint(*str, va_arg(args, unsigned int)) :0;
-            (*str == 'f' || *str == 'F' || *str == 'e' || *str == 'E' || *str == 'a' || *str == 'A' || *str == 'g' || *str == 'G') ? outdoub(*str, va_arg(args, double)):0; 
+            (*str == 'd' || *str == 'i' || *str == 'c') ? outint(*str, args):0;
+            (*str == 's') ? outcharst(*str, args):0;
+            (*str == 'o' || *str == 'x' || *str == 'X' || *str == 'u') ? outuint(*str, args) :0;
+            (*str == 'f' || *str == 'F' || *str == 'e' || *str == 'E' || *str == 'a' || *str == 'A' || *str == 'g' || *str == 'G') ? outdoub(*str, args):0; 
         }
         else
             ft_putchar(*str);

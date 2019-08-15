@@ -105,4 +105,7 @@ t_list			*ft_strsplit_lst(char const *s, char c);
 void			ft_printlst(t_list *elem);
 int				ft_atoi_base(const char *str, int str_base);
 int				ft_pow(int a, int value);
+void			ft_putnbrlong_fd(long long n, int fd);
+void			ft_putnbrlong(long long n);
+void			ft_printhex(int num);
 #endif
