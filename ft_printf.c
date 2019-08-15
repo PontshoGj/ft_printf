@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include "ft_printf.h"
-#include <stdarg.h>
 
 void    outint(char s, va_list args)
 {
