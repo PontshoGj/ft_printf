@@ -9,4 +9,9 @@
 # include <stdio.h>
 
 int		ft_printf(const char *str, ...);
+void    outint(char s, va_list args);
+void    outcharst(char s, va_list args);
+void    outuint(char s, va_list args);
+void    outdoub(char s, va_list args);
+
 #endif
