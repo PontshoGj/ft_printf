@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:29:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/07/31 12:30:20 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/08/15 18:21:29 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ int				ft_pow(int a, int value);
 void			ft_putnbrlong_fd(long long n, int fd);
 void			ft_putnbrlong(long long n);
 void			ft_printhex(int num);
+size_t			ft_strspn(const char *s, const char *charset);
 #endif
