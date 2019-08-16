@@ -1,5 +1,13 @@
 #include "ft_printf.h"
 
+static void    printstr(char s, va_list args)
+{
+    (s == 'd' || s == 'i' || s == 'c') ? outint(s, args) : 0;
+    (s == 's') ? outcharst(s, args) : 0;
+    (s == 'o' || s == 'x' || s == 'X' || s == 'u') ? outuint(s, args) : 0;
+    (s == 'f' || s == 'F' || s == 'e' || s == 'E' || s == 'a' || s == 'A' \
+    || s == 'g' || s == 'G') ? outdoub(s, args):0;
+}
 
 int ft_printf(const char *str, ...)
 {
@@ -11,10 +19,8 @@ int ft_printf(const char *str, ...)
         if (*str == '%')
         {
             str++;
-            (*str == 'd' || *str == 'i' || *str == 'c') ? outint(*str, args):0;
-            (*str == 's') ? outcharst(*str, args):0;
-            (*str == 'o' || *str == 'x' || *str == 'X' || *str == 'u') ? outuint(*str, args) :0;
-            (*str == 'f' || *str == 'F' || *str == 'e' || *str == 'E' || *str == 'a' || *str == 'A' || *str == 'g' || *str == 'G') ? outdoub(*str, args):0; 
+            if (ft_strspn(&(*str), "dicsoxXufFeEaAgG"))
+                printstr(*str, args);
         }
         else
             ft_putchar(*str);
