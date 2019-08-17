@@ -2,6 +2,7 @@
 
 int main(void)
 {
-    ft_printf("I love this %s series, don't you! %u\n", "Hello World" , strlen("Hello World"));
+    ft_printf("I love this %s series, don't you! %X\n", "Hello World" , 225);
+    printf("I love this %s series, don't you! %X\n", "Hello World" , 225);
     return (0);
 }

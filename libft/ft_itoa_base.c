@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/28 09:08:52 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/06/27 12:10:09 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/08/16 14:14:17 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/08/16 14:16:02 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char		*ft_itoa_base(int value, int base)
 {
+	char	*s;
 	char	*str;
-	size_t	i;
+	int		neg;
+	size_t	len;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	i = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(str = (char *)malloc(sizeof(char) * i)))
-		return (0);
-	str = ft_strcpy(str, s1);
-	str = ft_strcat(str, s2);
+	s = "0123456789ABCDEF";
+	len = ft_intlen_base(value, base);
+	neg = 1;
+	
+	if (value < 0)
+	{
+		neg *= -1;
+		value *= -1;
+		(base == 10) ? len++ : 0;
+	}
+	str = (char *)malloc(sizeof(char) * len);
+	str[len--] = 0;
+	while (value)
+	{
+		str[len--] = s[value % base];
+		value /= base;
+	}
+	(neg < 0 && base == 10) ? str[0] = '-' : 0;
 	return (str);
 }

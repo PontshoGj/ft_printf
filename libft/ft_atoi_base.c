@@ -15,7 +15,7 @@
 int			hex(char *str, int base)
 {
 	int		i;
-	int		j;
+	size_t	j;
 	int		f;
 
 	i = 0;

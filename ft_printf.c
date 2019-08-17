@@ -6,7 +6,7 @@ static void    printstr(char s, va_list args)
     (s == 's') ? outcharst(s, args) : 0;
     (s == 'o' || s == 'x' || s == 'X' || s == 'u') ? outuint(s, args) : 0;
     (s == 'f' || s == 'F' || s == 'e' || s == 'E' || s == 'a' || s == 'A' \
-    || s == 'g' || s == 'G') ? outdoub(s, args):0;
+    || s == 'g' || s == 'G') ? outdoub(s, args) : 0;
 }
 
 int ft_printf(const char *str, ...)
