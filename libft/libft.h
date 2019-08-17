@@ -109,6 +109,6 @@ void			ft_putnbrlong_fd(long long n, int fd);
 void			ft_putnbrlong(long long n);
 void			ft_printhex(int num);
 size_t			ft_strspn(const char *s, const char *charset);
-char			*ft_itoa_base(int value, int base);
+char			*ft_itoa_base(int value, int base, char h);
 int				ft_intlen_base(int n, int base);
 #endif

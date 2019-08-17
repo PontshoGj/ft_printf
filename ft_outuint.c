@@ -7,10 +7,15 @@ void    outuint(char s, va_list args)
 
     i = va_arg(args, unsigned int);
     str = 0;
-    if (s == 'X')
+    if (s == 'X' || s == 'x')
     {
-        str = ft_itoa_base((int)i, 16);
+        str = ft_itoa_base((int)i, 16, s);
         ft_putstr(str);
     }
-    (s == 'o' || s == 'u') ? ft_putnbrlong(i) : 0 ;
+    if (s == 'o')
+    {
+        str = ft_itoa_base((int)i, 8, s);
+        ft_putstr(str);
+    }
+    (s == 'u') ? ft_putnbrlong(i) : 0;
 }

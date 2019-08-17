@@ -11,16 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char		*ft_itoa_base(int value, int base)
+char		*bigrsmallHex(char s)
+{
+	if (s == 'X')
+		return ("0123456789ABCDEF");
+	return ("0123456789abcdef");
+}
+
+char		*ft_itoa_base(int value, int base, char h)
 {
 	char	*s;
 	char	*str;
 	int		neg;
 	size_t	len;
 
-	s = "0123456789ABCDEF";
+	s = bigrsmallHex(h);
 	len = ft_intlen_base(value, base);
 	neg = 1;
 	
