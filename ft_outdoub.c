@@ -11,7 +11,7 @@ long    rnum(double i)
 	{
 		i -= 0.1;
         //printf("%f\t%lu\n", i, count);
-		count *= 10;
+		count *= 100;
 	}
     return (count);
 }
@@ -31,7 +31,7 @@ void    outdoub(char s, va_list args)
         //printf("%f", j);
         ft_putnbrlong((int)i);
         ft_putchar('.');
-        ft_putnbrlong(j * (rnum(j) * 10));
+        ft_putnbrlong(j * rnum(j));
 
     }
     //ft_putnbrlong(va_arg(args, long));
