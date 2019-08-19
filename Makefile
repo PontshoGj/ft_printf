@@ -6,20 +6,22 @@ CFLAGS=-Wall -Wextra -Werror -c -I .
 
 RM=rm -f
 
-SRC=ft_outint.c ft_outstr.c ft_outuint.c ft_outdoub.c ft_printf.c ft_printstr.c \
-ft_printhexa.c ft_printpadd.c ft_printhandler.c \
+SRC=src/ft_outint.c src/ft_outstr.c src/ft_outuint.c src/ft_outdoub.c src/ft_printf.c src/ft_printstr.c \
+src/ft_printhexa.c src/ft_printpadd.c src/ft_printhandler.c \
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME): 
 	$(CC) $(CFLAGS) $(SRC)
+	cp *.o src/
 	ar rc $(NAME) $(OBJ)
-	$(CC) main.c ft_printf.a libft/libft.a 
-
+	cp ft_printf.a src/
+	$(CC) -o a src/main.c src/ft_printf.a libft/libft.a 
+	rm -f src/*.o
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) *.o
 
 fclean: clean
 	$(RM) $(NAME)
