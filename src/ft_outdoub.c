@@ -1,16 +1,19 @@
 #include "ft_printf.h"
 
-int    rnum(double i)
+int    rnum(double i, int z)
 {
 	int	count;
 	int	j;
 
 	count = 1;
-	j = 0;
-	while (i > 0 && j++ < 6)
+    if (z != 0)
+        j = z;
+    else
+	    j = 6;
+	while (i > 0 && j-- > 0)
 	{
 		count = i * 10;
-		if (j == 6)
+		if (j == 0)
 		{
 			if (i * 10 > 5)
 				count += 1;
@@ -20,7 +23,7 @@ int    rnum(double i)
     return (count);
 }
 
-void    outdoub(char s, va_list args)
+void    outdoub(char s, va_list args, int z)
 {
     double i;
     double j;
@@ -35,7 +38,7 @@ void    outdoub(char s, va_list args)
         //printf("%f\n\n", j);
         ft_putnbrlong((int)i);
         ft_putchar('.');
-        ft_putnbrlong(rnum(j));
+        ft_putnbrlong(rnum(j, z));
 
     }
     //ft_putnbrlong(va_arg(args, long));
