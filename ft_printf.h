@@ -9,8 +9,8 @@
 # include <stdio.h>
 
 int		ft_printf(const char *str, ...);
-void    outint(char s, va_list args);
-void    outcharst(char s, va_list args);
+void    outint(char s, va_list args, int i);
+void    outcharst(char s, va_list args, int i);
 void    outuint(char s, va_list args, char hex);
 void    outdoub(char s, va_list args);
 #endif
