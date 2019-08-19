@@ -6,7 +6,8 @@ CFLAGS=-Wall -Wextra -Werror -c -I .
 
 RM=rm -f
 
-SRC=ft_outint.c ft_outstr.c ft_outuint.c ft_outdoub.c ft_printf.c \
+SRC=ft_outint.c ft_outstr.c ft_outuint.c ft_outdoub.c ft_printf.c ft_printstr.c \
+ft_printhexa.c ft_printpadd.c ft_printhandler.c \
 
 OBJ=$(SRC:.c=.o)
 

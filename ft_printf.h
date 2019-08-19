@@ -13,4 +13,8 @@ void    outint(char s, va_list args, int i);
 void    outcharst(char s, va_list args, int i);
 void    outuint(char s, va_list args, char hex);
 void    outdoub(char s, va_list args);
+void    printstr(char s, va_list args);
+void    printxx(char *s, va_list args);
+void    prints(int i, char *str, va_list args);
+void    printhandler( const char **str, va_list args);
 #endif
