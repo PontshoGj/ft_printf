@@ -13,5 +13,5 @@ void        padd(const char **str, va_list args)
     if (ft_strspn(&(*str[0]), "scdi"))
         prints(ft_atoi(s), (char *)(*str), args);
     else if (*str[0] == 'f')
-        outdoub(*str[0], args, 0, ft_atoi(s));   
+        outdoub(*str[0], args, ft_atoi(s), 0);   
 }

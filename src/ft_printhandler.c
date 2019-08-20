@@ -1,5 +1,19 @@
 #include "ft_printf.h"
 
+static void paddhandler(const char **str, va_list args)
+{
+    if (*str[0] == 'f')
+        outdoub(*str[0], args, va_arg(args, int), 0);
+    else if (*str[0] == 's')
+        outcharst(*str[0], args, va_arg(args, int));
+    else if (*str[0] == '.')
+    {
+        *str += 2;
+        if (*str[0] == 'f')
+            outdoub(*str[0], args, va_arg(args, int), va_arg(args, int));
+    }
+}
+
 void        printhandler(const char **str, va_list args)
 {
     char *s;
@@ -19,5 +33,11 @@ void        printhandler(const char **str, va_list args)
     {
         *str += 1;
         paddfloat(str, args);
+    }
+    else if (*str[0] == '*')
+    {
+        *str += 1;
+        if (ft_strspn(&(*str[0]), ".fsdicoxXufFeEaAgG"))
+            paddhandler(str, args);
     }
 }

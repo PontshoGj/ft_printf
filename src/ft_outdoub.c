@@ -32,7 +32,7 @@ static void        floatspace(int i, int c, int sizes)
     givespace((int)ft_strlen(s), sizes);
 }
 
-void        outdoub(char s, va_list args, int z, int sizes)
+void        outdoub(char s, va_list args, int sizes, int z)
 {
     double  i;
     double  j;
