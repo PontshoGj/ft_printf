@@ -5,12 +5,14 @@ static void paddhandler(const char **str, va_list args)
     if (*str[0] == 'f')
         outdoub(*str[0], args, va_arg(args, int), 0);
     else if (*str[0] == 's')
-        outcharst(*str[0], args, va_arg(args, int));
+        outcharst(*str[0], args, va_arg(args, int), 0);
     else if (*str[0] == '.')
     {
         *str += 2;
         if (*str[0] == 'f')
             outdoub(*str[0], args, va_arg(args, int), va_arg(args, int));
+        else if (*str[0] == 's')
+            outcharst(*str[0], args, va_arg(args, int), va_arg(args, int));
     }
 }
 

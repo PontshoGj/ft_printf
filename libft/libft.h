@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/20 13:29:33 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/08/17 02:24:16 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/08/20 12:34:40 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,6 @@ void			ft_printhex(int num);
 size_t			ft_strspn(const char *s, const char *charset);
 char			*ft_itoa_base(int value, int base, char h);
 int				ft_intlen_base(int n, int base);
+void			ft_putstrc(char *s, int size);
+void			ft_putstrc_fd(char *s, int fd, int size);
 #endif

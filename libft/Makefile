@@ -6,7 +6,7 @@
 #    By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/09 14:38:38 by pmogwere          #+#    #+#              #
-#    Updated: 2019/08/17 02:24:40 by pmogwere         ###   ########.fr        #
+#    Updated: 2019/08/20 12:34:01 by pmogwere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME=libft.a
@@ -35,7 +35,7 @@ ft_str_is_printable.c ft_islower.c ft_isupper.c ft_strsplit_lst.c \
 ft_str_is_alpha.c ft_strrev.c ft_strlenc.c ft_intlen.c ft_printlst.c \
 ft_str_to_upper.c ft_isspace.c ft_wordlen.c ft_str_to_lower.c ft_atoi_base.c \
 ft_putnbrlong.c ft_putnbrlong_fd.c ft_printhex.c ft_strspn.c ft_itoa_base.c \
-ft_intlen_base.c \
+ft_intlen_base.c ft_putstrc_fd.c ft_putstrc.c \
 
 OBJ=$(SRC:.c=.o)
 
