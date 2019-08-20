@@ -17,7 +17,6 @@ void    outuint(char s, va_list args, char hex, int space,int length)
     int j;
 
     i = va_arg(args, unsigned int);
-    str = 0;
     str = (s == 'X' || s == 'x') ? ft_itoa_base((int)i, 16, s) : ft_itoa_base((int)i, 8, s);
     j = (int)ft_strlen(str);
     if (length == 0)
@@ -41,11 +40,7 @@ void    outuint(char s, va_list args, char hex, int space,int length)
             givespace(j, space * -1);
         }
     }
-    else
-    {
-        if (i != 0)
-    	    printx(s, hex);
-        ft_putstr(str);
-    }
-    (s == 'u') ? ft_putnbrlong(i) : 0;
+    if (i != 0)
+    	printx(s, hex);
+    ft_putstr(str);
 }
