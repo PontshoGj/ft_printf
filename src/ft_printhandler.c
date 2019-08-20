@@ -2,6 +2,9 @@
 
 static void paddhandler(const char **str, va_list args)
 {
+    int i;
+
+    i = 0;
     if (*str[0] == 'f')
         outdoub(*str[0], args, va_arg(args, int), 0);
     else if (*str[0] == 's')
@@ -13,7 +16,16 @@ static void paddhandler(const char **str, va_list args)
             outdoub(*str[0], args, va_arg(args, int), va_arg(args, int));
         else if (*str[0] == 's')
             outcharst(*str[0], args, va_arg(args, int), va_arg(args, int));
+        else if (*str[0] == 'x' || *str[0] == 'X')
+        {
+            i = va_arg(args, int);
+            (void)va_arg(args, int);
+            outuint(*str[0], args, 0, i, 0);
+        }
     }
+    else if (*str[0] == 'x' || *str[0] == 'X')
+        outuint(*str[0], args, 0, va_arg(args, int), 0);
+    
 }
 
 void        printhandler(const char **str, va_list args)

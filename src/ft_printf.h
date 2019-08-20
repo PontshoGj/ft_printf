@@ -11,7 +11,7 @@
 int		ft_printf(const char *str, ...);
 void    outint(char s, va_list args, int i);
 void    outcharst(char s, va_list args, int i, int length);
-void    outuint(char s, va_list args, char hex);
+void    outuint(char s, va_list args, char hex, int space, int length);
 void    outdoub(char s, va_list args, int size, int z);
 void    printstr(char s, va_list args);
 void    printxx(char *s, va_list args);
