@@ -2,13 +2,23 @@
 
 void    outint(char s, va_list args, int space)
 {
-    if (space != 0)
+    int i;
+    
+    i = va_arg(args, int);
+    if (space > 0)
     {
-        while (space-- > 0)
-            ft_putchar(' ');
+        givespace((int)ft_intlen(i), space);
+        if (s == 'c')
+        ft_putchar(i);
+        else
+        ft_putnbr(i);
     }
-    if (s == 'c')
-        ft_putchar(va_arg(args, int));
-    else
-        ft_putnbr(va_arg(args, int));
+    if (space < 0)
+    {
+        if (s == 'c')
+        ft_putchar(i);
+        else
+        ft_putnbr(i);
+        givespace((int)ft_intlen(i), space);
+    }    
 }

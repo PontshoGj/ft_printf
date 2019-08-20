@@ -22,9 +22,13 @@ static void paddhandler(const char **str, va_list args)
             (void)va_arg(args, int);
             outuint(*str[0], args, 0, i, 0);
         }
+        else if (*str[0] == 'd' || *str[0] == 'i')
+            printf("^^^^^");
     }
     else if (*str[0] == 'x' || *str[0] == 'X')
         outuint(*str[0], args, 0, va_arg(args, int), 0);
+    else if (*str[0] == 'd' || *str[0] == 'i' || *str[0] == 'c')
+        outint(*str[0], args, va_arg(args, int));
     
 }
 
