@@ -17,4 +17,7 @@ void    printstr(char s, va_list args);
 void    printxx(char *s, va_list args);
 void    prints(int i, char *str, va_list args);
 void    printhandler( const char **str, va_list args);
+void    padd(const char **str, va_list args);
+void    paddfloat(const char **str, va_list args);
+void    floatpre(const char **str, va_list args, int i);
 #endif
