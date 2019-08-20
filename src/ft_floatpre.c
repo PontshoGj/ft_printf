@@ -5,6 +5,6 @@ void floatpre(const char **str, va_list args, int i)
     char c;
 
     c = (char)(*str[0]);
-    outdoub(c, args, i);
+    outdoub(c, args, i, 0);
 
 }

@@ -1,15 +1,6 @@
 
 #include "ft_printf.h"
 
-static void givespace(int i, int space)
-{
-    if (i < space)
-    {
-        space -= i;
-        while (space-- > 0)
-            ft_putchar(' ');
-    }
-}
 void    outcharst(char s, va_list args, int space)
 {
     int i;

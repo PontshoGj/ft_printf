@@ -21,25 +21,36 @@ int    rnum(double i, int z)
 		i *= 10;
 	}
     return (count);
+}     
+
+static void        floatspace(int i, int c, int sizes)
+{
+    char *s;
+
+    s = ft_itoa(i);
+    s = ft_strjoin(s, ft_itoa(c));
+    givespace((int)ft_strlen(s), sizes);
 }
 
-void    outdoub(char s, va_list args, int z)
+void        outdoub(char s, va_list args, int z, int sizes)
 {
-    double i;
-    double j;
+    double  i;
+    double  j;
+    int     c;
 
     i = 0;
     j = 0;
+    c = 0;
     if (s == 'f' || s == 'F')
     {
         i = va_arg(args, double);
         j = i;
         j = i-(int)j;
-        //printf("%f\n\n", j);
+        c = rnum(j, z);
+        floatspace((int)i, c, sizes);
         ft_putnbrlong((int)i);
         ft_putchar('.');
-        ft_putnbrlong(rnum(j, z));
-
+        ft_putnbrlong((long)c);
     }
     //ft_putnbrlong(va_arg(args, long));
 }
