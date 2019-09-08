@@ -2,10 +2,11 @@
 
 int main(void)
 {
-    ft_printf("I love this %s series, don't you! %llX\n", "Hello", 1234567891234567890);
-    printf("I love this %s series, don't you! %llX\n", "Hello", 1234567891234567890);
+    ft_printf("I love this %20d series, don't you!\n", 20);
+    //printf("I love this %s series, don't you!\n", "Hello");
     //char *s;
     //ft_printf("%d\n", &s);
     //printf("%p", &s);
-    return (0);
+    sleep(30);
+	return (0);
 }
