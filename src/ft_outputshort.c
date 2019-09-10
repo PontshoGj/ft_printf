@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    ft_outputlong(va_list args, int space, char c)
+void    ft_outputshort(va_list args, int space, char c)
 {
     (void)space;
     long long i;
@@ -12,7 +12,7 @@ void    ft_outputlong(va_list args, int space, char c)
     ft_putnbrlong(i);
 }
 
-void    ft_outputlonghex(va_list args, int space, char hex, char c)
+void    ft_outputshorthex(va_list args, int space, char hex, char c)
 {
     (void)space;
     (void)hex;

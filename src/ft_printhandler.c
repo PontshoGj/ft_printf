@@ -37,6 +37,8 @@ void        printhandler(const char **str, va_list args)
       printstr((char)*str[0], args);
     else if (ft_strspn("l", &(*str[0])) == 1)
       ft_printlong((char **)str, args);
+    else if (ft_strspn("h", &(*str[0])) == 1)
+      ft_printshort((char **)str, args);
 	else if (ft_strspn(*str, "#"))
 	{
         *str += 1;
@@ -45,6 +47,8 @@ void        printhandler(const char **str, va_list args)
     }
     else if (ft_isdigit(*str[0]) || *str[0] == '-')
         padd(str, args);
+    else if (*str[0] == '+' && ft_strspn(&(*str[0]), "diul"))
+       ft_addplus(str, args);
     else if (*str[0] == '.')
     {
         *str += 1;
