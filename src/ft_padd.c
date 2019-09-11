@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void        padd(const char **str, va_list args)
+void        padd(char **str, va_list args)
 {
     char *s;
     char *temp;

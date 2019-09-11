@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void floatpre(const char **str, va_list args, int i)
+void floatpre(char **str, va_list args, int i)
 {
     char c;
 

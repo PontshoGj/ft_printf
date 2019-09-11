@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static void paddhandler(const char **str, va_list args)
+static void paddhandler(char **str, va_list args)
 {
     int i;
 
@@ -31,24 +31,27 @@ static void paddhandler(const char **str, va_list args)
         outint(*str[0], args, va_arg(args, int));
 }
 
-void        printhandler(const char **str, va_list args)
+void        printhandler(char **str, va_list args)
 {
     if (ft_strspn(&(*str[0]), "dicsoxXufFeEaAgG"))
-      printstr((char)*str[0], args);
+      printstr(*str[0], args);
     else if (ft_strspn("l", &(*str[0])) == 1)
-      ft_printlong((char **)str, args);
+      ft_printlong(str, args);
     else if (ft_strspn("h", &(*str[0])) == 1)
-      ft_printshort((char **)str, args);
+      ft_printshort(str, args);
 	else if (ft_strspn(*str, "#"))
 	{
         *str += 1;
         if (ft_strspn(&(*str[0]), "oxX"))
-            printxx((char *)(*str), args);
+            printxx(*str, args);
     }
     else if (ft_isdigit(*str[0]) || *str[0] == '-')
         padd(str, args);
-    else if (*str[0] == '+' && ft_strspn(&(*str[0]), "diul"))
-       ft_addplus(str, args);
+    else if (*str[0] == '+')
+    {
+        //if ((*str += 1) && ft_strspn(&(*str[0]), "diul"))
+            ft_addplus((char **)str, args);
+    }
     else if (*str[0] == '.')
     {
         *str += 1;

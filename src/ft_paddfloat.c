@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    paddfloat(const char **str, va_list args)
+void    paddfloat(char **str, va_list args)
 {
     char *s;
 

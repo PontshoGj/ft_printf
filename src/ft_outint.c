@@ -5,7 +5,9 @@ void    outint(char s, va_list args, int space)
     int i;
     
     i = va_arg(args, int);
-    if (space > 0)
+    if (s == '+' && i > 0)
+        ft_putchar('+');
+    if (space >= 0)
     {
         givespace((int)ft_intlen(i), space);
         if (s == 'c')

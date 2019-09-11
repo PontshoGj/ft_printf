@@ -10,7 +10,7 @@ int ft_printf(const char *str, ...)
         if (*str == '%')
         {
             str++;
-	        printhandler(&str, args);     
+	        printhandler((char **)&str, args);     
         }
         else
             ft_putchar(*str);
