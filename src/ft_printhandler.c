@@ -63,4 +63,6 @@ void        printhandler(char **str, va_list args)
         if (ft_strspn(&(*str[0]), ".fsdicoxXufFeEaAgG"))
             paddhandler(str, args);
     }
+    else if (*str[0] == '%')
+        ft_putchar('%');
 }
