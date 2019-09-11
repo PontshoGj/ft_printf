@@ -9,7 +9,6 @@ void    outint(char s, va_list args, int space, char zeros)
         ft_putchar('+');
     if (space >= 0)
     {
-        
         if (s == 'c')
         {
             givespace(1, space, zeros);

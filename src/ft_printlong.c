@@ -26,4 +26,20 @@ void    ft_printlong(char **s, va_list args)
         *s += 1;
         ft_outputlonghex(args, 0, *s[0], str[2]);
     }
+    else if (ft_strspn(str, "llu") == 3)
+    {
+        *s += 2;
+    }
+    else if (ft_strspn("lu", str) == 2)
+    {
+        *s += 1;
+    }
+    else if (ft_strspn(str,"llo") == 3)
+    {
+        *s += 2;
+    }
+    else if (ft_strspn("lo", str) == 2)
+    {
+        *s += 1;
+    }
 }

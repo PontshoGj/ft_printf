@@ -48,10 +48,7 @@ void        printhandler(char **str, va_list args)
     else if (ft_isdigit(*str[0]) || *str[0] == '-')
         padd(str, args);
     else if (*str[0] == '+')
-    {
-        //if ((*str += 1) && ft_strspn(&(*str[0]), "diul"))
-            ft_addplus((char **)str, args);
-    }
+        ft_addplus((char **)str, args);
     else if (*str[0] == '.')
     {
         *str += 1;
