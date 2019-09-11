@@ -27,7 +27,7 @@ void    outuint(char s, va_list args, char hex, int space,int length)
     {
         if (space > 0)
         {
-            givespace(j, space);
+            givespace(j, space, ' ');
             if (i != 0)
     	        printx(s, hex);
             ft_putstrc(str, length);
@@ -37,7 +37,7 @@ void    outuint(char s, va_list args, char hex, int space,int length)
             if (i != 0)
     	        printx(s, hex);
             ft_putstrc(str, length);
-            givespace(j, space * -1);
+            givespace(j, space * -1, ' ');
         }
     }
     if (i != 0)

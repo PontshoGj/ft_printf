@@ -2,8 +2,8 @@
 
 int main(void)
 {
-    ft_printf("I love this %+c series, don't you!\n", 'd');
-    printf("I love this %05d series, don't you!\n", 123);
+    ft_printf("I love this %020i series, don't you!\n", 'x');
+    printf("I love this %020i series, don't you!\n", 'x');
     //printf("I love this %s series, don't you!\n", "Hello");
     //char *s;
     //ft_printf("%d\n", &s);

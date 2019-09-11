@@ -17,13 +17,13 @@ void    outcharst(char s, va_list args, int space ,int length)
     {
         if (space > 0)
         {
-            givespace(i, space);
+            givespace(i, space, ' ');
             ft_putstrc(str, length);
         }
         else if (space < 0)
         {
             ft_putstrc(str, length);
-            givespace(i, space * -1);
+            givespace(i, space * -1, ' ');
         }
         return;
     }

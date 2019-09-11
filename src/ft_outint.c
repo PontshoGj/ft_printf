@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void    outint(char s, va_list args, int space)
+void    outint(char s, va_list args, int space, char zeros)
 {
     int i;
     
@@ -9,18 +9,29 @@ void    outint(char s, va_list args, int space)
         ft_putchar('+');
     if (space >= 0)
     {
-        givespace((int)ft_intlen(i), space);
+        
         if (s == 'c')
-        ft_putchar(i);
+        {
+            givespace(1, space, zeros);
+            ft_putchar(i);
+        }
         else
-        ft_putnbr(i);
+        {
+            givespace((int)ft_intlen(i), space, zeros);
+            ft_putnbr(i);
+        }
     }
     if (space < 0)
     {
         if (s == 'c')
-        ft_putchar(i);
+        {
+            ft_putchar(i);
+            givespace(1, space, zeros);
+        }
         else
-        ft_putnbr(i);
-        givespace((int)ft_intlen(i), space);
+        {
+            ft_putnbr(i);
+            givespace((int)ft_intlen(i), space, zeros);
+        }
     }    
 }

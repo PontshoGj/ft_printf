@@ -29,7 +29,7 @@ static void        floatspace(int i, int c, int sizes)
 
     s = ft_itoa(i);
     s = ft_strjoin(s, ft_itoa(c));
-    givespace((int)ft_strlen(s), sizes);
+    givespace((int)ft_strlen(s), sizes, ' ');
 }
 
 void        outdoub(char s, va_list args, int sizes, int z)

@@ -23,12 +23,12 @@ static void paddhandler(char **str, va_list args)
             outuint(*str[0], args, 0, i, 0);
         }
         else if (*str[0] == 'd' || *str[0] == 'i')
-            outint(*str[0], args, va_arg(args, int));
+            outint(*str[0], args, va_arg(args, int), ' ');
     }
     else if (*str[0] == 'x' || *str[0] == 'X' || *str[0] == 'o')
         outuint(*str[0], args, 0, va_arg(args, int), 0);
     else if (*str[0] == 'd' || *str[0] == 'i' || *str[0] == 'u')
-        outint(*str[0], args, va_arg(args, int));
+        outint(*str[0], args, va_arg(args, int), ' ');
 }
 
 void        printhandler(char **str, va_list args)
