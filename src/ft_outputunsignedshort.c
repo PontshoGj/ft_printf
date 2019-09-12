@@ -17,6 +17,7 @@ void    ft_outputunsignedshorthex(va_list args, int space, char hex, char c)
     (void)space;
     (void)hex;
     long long i;
+    
     if (c == 'l')
         i = va_arg(args, int);
     else    

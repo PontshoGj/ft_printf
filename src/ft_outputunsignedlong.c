@@ -6,7 +6,7 @@ void    ft_outputunsignedlong(va_list args, int space, char c)
     long long i;
 
     if (c == 'l')
-        i = va_arg(args, unsigned long);
+        i = va_arg(args, long);
     else    
         i = va_arg(args, unsigned long long);
     ft_putnbrlong(i);

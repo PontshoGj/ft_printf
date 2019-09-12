@@ -32,4 +32,6 @@ void    ft_outputunsignedlong(va_list args, int space, char c);
 void    ft_outputunsignedlonghex(va_list args, int space, char hex, char c);
 void    ft_printshort(char **s, va_list args);
 void    ft_addplus(char **s, va_list args);
+void    ft_outputshortun(va_list args, int space, char c);
+void	ft_nbr(int n, int num);
 #endif
