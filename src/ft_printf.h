@@ -26,12 +26,14 @@ void    ft_outputlong(va_list args, int space, char c);
 void    ft_outputlonghex(va_list args, int space, char hex, char c);
 void    ft_outputshort(va_list args, int space, char c);
 void    ft_outputshorthex(va_list args, int space, char hex, char c);
-void    ft_outputunsignedshorthex(va_list args, int space, char hex, char c);
+void    ft_outputshortoct(va_list args, int space, char hex, char c);
 void    ft_outputunsignedshort(va_list args, int space, char c);
 void    ft_outputunsignedlong(va_list args, int space, char c);
 void    ft_outputunsignedlonghex(va_list args, int space, char hex, char c);
-void    ft_printshort(char **s, va_list args);
+void    ft_printshort(char **s, va_list args, int space);
 void    ft_addplus(char **s, va_list args);
 void    ft_outputshortun(va_list args, int space, char c);
 void	ft_nbr(int n, int num);
+char	*ft_nbrstr(int n, int num);
+void	ft_nbr2(int n, int num);
 #endif

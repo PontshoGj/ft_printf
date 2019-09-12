@@ -33,12 +33,13 @@ static void paddhandler(char **str, va_list args)
 
 void        printhandler(char **str, va_list args)
 {
+    //printf("%zu", ft_strspn(&(*str[0]), "h"));
     if (ft_strspn(&(*str[0]), "dicsoxXufFeEaAgG"))
       printstr(*str[0], args);
-    else if (ft_strspn("l", &(*str[0])) == 1)
+    else if (ft_strspn(&(*str[0]), "l") == 1)
       ft_printlong(str, args);
-    else if (ft_strspn("h", &(*str[0])) == 1)
-      ft_printshort(str, args);
+    else if (ft_strspn(&(*str[0]), "h"))
+      ft_printshort(str, args, 0);
 	else if (ft_strspn(*str, "#"))
 	{
         *str += 1;
