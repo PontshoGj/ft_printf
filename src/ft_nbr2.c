@@ -1,16 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_nbr2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/14 12:13:34 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/14 12:14:16 by pmogwere         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-
-
 
 void		ft_nbr2(int n, int num)
 {
-    char *s;
-    int i;
+	char	*s;
+	int		i;
 
-    s = ft_itoa(n);
-    if (n < 0)
-        num++;
-    i = ft_intlen(n) - 3;
-    while (s[i] > 0 && num-- > 0)
-        ft_putchar(s[i++]);
+	s = ft_itoa(n);
+	if (n < 0)
+		num++;
+	i = ft_intlen(n) - 3;
+	while (s[i] > 0 && num-- > 0)
+		ft_putchar(s[i++]);
 }
