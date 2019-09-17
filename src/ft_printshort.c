@@ -6,15 +6,15 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 13:31:42 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:36:16 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/17 16:23:49 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_printshort(char **s, va_list args, int space)
+static void		ft_printshort2(char **s, va_list args, int space)
 {
-	char	*str;
+	char		*str;
 
 	str = ft_strtrim(ft_strsub(*s, 0, 3));
 	if (ft_strspn(str, "hhd") == 3 || ft_strspn(str, "hhi") == 3)
@@ -37,6 +37,15 @@ void		ft_printshort(char **s, va_list args, int space)
 		*s += 2;
 		ft_outputunsignedshort(args, space, str[1]);
 	}
+}
+
+void			ft_printshort(char **s, va_list args, int space)
+{
+	char		*str;
+
+	str = ft_strtrim(ft_strsub(*s, 0, 3));
+	if (ft_strspn(str, "hhxoXdi") == 3)
+		ft_printshort2(s, args, space);
 	else if (ft_strspn(str, "hd") == 2 || ft_strspn(str, "hi") == 2)
 	{
 		ft_outputshortun(args, space, *s[0]);

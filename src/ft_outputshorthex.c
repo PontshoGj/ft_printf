@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 12:38:02 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 12:41:40 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/17 17:15:55 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,8 @@ static char		*ft_nbrstrhex(char *s1, int num)
 	return (str);
 }
 
-void			ft_outputshorthex(va_list args, int space, char hex, char c)
+static void		ft_outpsh(long long i, int space, char hex)
 {
-	long long	i;
-
-	(void)space;
-	(void)hex;
-	if (c == 'h')
-	{
-		i = va_arg(args, long);
-		if (space >= 0)
-		{
-			givespace(ft_intlen(i), space, ' ');
-			ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
-		}
-		else
-		{
-			ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
-			givespace(ft_intlen(i), space, ' ');
-		}
-		return ;
-	}
-	i = va_arg(args, long long);
 	if (space >= 0)
 	{
 		givespace(ft_intlen(i), space, ' ');
@@ -59,4 +39,32 @@ void			ft_outputshorthex(va_list args, int space, char hex, char c)
 		ft_putstr(ft_longtoa_base(i, 16, hex));
 		givespace(ft_intlen(i), space, ' ');
 	}
+}
+
+static void		ft_outpshh(long long i, int space, char hex)
+{
+	if (space >= 0)
+	{
+		givespace(ft_intlen(i), space, ' ');
+		ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
+	}
+	else
+	{
+		ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
+		givespace(ft_intlen(i), space, ' ');
+	}
+}
+
+void			ft_outputshorthex(va_list args, int space, char hex, char c)
+{
+	long long	i;
+
+	if (c == 'h')
+	{
+		i = va_arg(args, long);
+		ft_outpshh(i, space, hex);
+		return ;
+	}
+	i = va_arg(args, long long);
+	ft_outpsh(i, space, hex);
 }

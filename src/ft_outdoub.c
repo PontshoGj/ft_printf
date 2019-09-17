@@ -64,5 +64,4 @@ void				outdoub(char s, va_list args, int sizes, int z)
 		ft_putchar('.');
 		ft_putnbrlong((long)c);
 	}
-	//ft_putnbrlong(va_arg(args, long));
 }

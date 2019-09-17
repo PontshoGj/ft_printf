@@ -33,7 +33,7 @@ void	padd(char **str, va_list args);
 void	paddfloat(char **str, va_list args);
 void	floatpre(char **str, va_list args, int i);
 void	givespace(int i, int space, char give);
-void	ft_printlong(char **s, va_list args);
+void	ft_printlong(char **s, va_list args, int space);
 void	ft_outputlong(va_list args, int space, char c);
 void	ft_outputlonghex(va_list args, int space, char hex, char c);
 void	ft_outputshort(va_list args, int space, char c);

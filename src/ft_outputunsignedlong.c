@@ -6,7 +6,7 @@
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 12:52:59 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 12:56:21 by pmogwere         ###   ########.fr       */
+/*   Updated: 2019/09/14 14:36:53 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void			ft_outputunsignedlong(va_list args, int space, char c)
 {
 	long long	i;
 
+	(void)space;
 	if (c == 'l')
 		i = va_arg(args, long);
 	else

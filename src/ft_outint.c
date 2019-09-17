@@ -12,26 +12,29 @@
 
 #include "ft_printf.h"
 
-void	outint(char s, va_list args, int space, char zeros)
+static void		ft_outsint(int i, int space, char zeros, char s)
 {
-	int	i;
+	if (s == 'c')
+	{
+		givespace(1, space, zeros);
+		ft_putchar(i);
+	}
+	else
+	{
+		givespace((int)ft_intlen(i), space, zeros);
+		ft_putnbr(i);
+	}
+}
+
+void			outint(char s, va_list args, int space, char zeros)
+{
+	int			i;
 
 	i = va_arg(args, int);
 	if (s == '+' && i > 0)
 		ft_putchar('+');
 	if (space >= 0)
-	{
-		if (s == 'c')
-		{
-			givespace(1, space, zeros);
-			ft_putchar(i);
-		}
-		else
-		{
-			givespace((int)ft_intlen(i), space, zeros);
-			ft_putnbr(i);
-		}
-	}
+		ft_outsint(i, space, zeros, s);
 	if (space < 0)
 	{
 		if (s == 'c')
