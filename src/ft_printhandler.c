@@ -40,6 +40,7 @@ static void	paddhandler(char **str, va_list args)
 	int		i;
 
 	i = 0;
+	(void)i;
 	if (*str[0] == 'f')
 		outdoub(*str[0], args, va_arg(args, int), 0);
 	else if (*str[0] == 's')
@@ -66,7 +67,7 @@ static void	printhandler2(char **str, va_list args)
 	else if (*str[0] == '*')
 	{
 		*str += 1;
-		if (ft_strspn(&(*str[0]), ".fsdicoxXufFeEaAgG"))
+		if (ft_strspn(&(*str[0]), ".fsdicoxXuf"))
 			paddhandler(str, args);
 	}
 	else if (*str[0] == '%')
@@ -75,20 +76,23 @@ static void	printhandler2(char **str, va_list args)
 
 void		printhandler(char **str, va_list args)
 {
-	if (ft_strspn(&(*str[0]), "dicsoxXufFeEaAgG"))
-		printstr(*str[0], args);
-	else if (ft_strspn(&(*str[0]), "l") == 1)
-		ft_printlong(str, args, 0);
-	else if (ft_strspn(&(*str[0]), "h"))
-		ft_printshort(str, args, 0);
-	else if (ft_strspn(*str, "#"))
-	{
-		*str += 1;
-		if (ft_strspn(&(*str[0]), "oxX"))
-			printxx(*str, args);
-	}
-	else if (*str[0] == '+' || *str[0] == '.' || *str[0] == '*')
-		printhandler2(str, args);
+	if (ft_strspn(&(*str[0]), "dicsoxXuf"))
+		printstr(str, args);
+	// else if (ft_strspn(&(*str[0]), "l") == 1)
+	// 	ft_printlong(str, args, 0);
+	// else if (ft_strspn(&(*str[0]), "h"))
+	// 	ft_printshort(str, args, 0);
+	// else if (ft_strspn(*str, "#"))
+	// {
+	// 	*str += 1;
+	// 	if (ft_strspn(&(*str[0]), "oxX"))
+	// 		printxx(*str, args);
+	// }
+	// else if (*str[0] == '+' || *str[0] == '.' || *str[0] == '*')
+	// 	printhandler2(str, args);
 	else if (*str[0] == '%' || ft_isdigit(*str[0]) || *str[0] == '-')
 		printhandler2(str, args);
+	(void)paddhandler2;
+	(void)paddhandler;
+
 }

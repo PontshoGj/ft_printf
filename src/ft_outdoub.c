@@ -27,8 +27,7 @@ static int			rnum(double i, int z)
 		count = i * 10;
 		if (j == 0)
 		{
-			if (i * 10 > 5)
-				count += 1;
+			(i * 10 > 5) ? count += 1 : (void)0;
 		}
 		i *= 10;
 	}

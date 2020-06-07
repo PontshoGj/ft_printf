@@ -60,4 +60,5 @@ void				outuint(char s, va_list args, char hex, int space,\
 	if (i != 0)
 		printx(s, hex);
 	ft_putstr(str);
+	(void)j;
 }

@@ -16,15 +16,17 @@ static void	ft_give(char give){
 	(give == '0') ? ft_putchar('0') : ft_putchar(' ');
 }
 
-static void	ft_space(int space, int sign, char give){
+static void	ft_space(unsigned int space, unsigned int sign, char give){
 	while (space != 0){
 		ft_give(give);
 		space += sign;
 	}
 }
 
-void	givespace(int i, int space, char give)
+void	givespace_unsigned(unsigned int i,unsigned int space, char give)
 {
 	space = (i < space) ? space - i : space + i;
 	(i <= space) ? ft_space(space, -1, give) : ft_space(space, 1, give);
+    (void)give;
+    (void)ft_space;
 }

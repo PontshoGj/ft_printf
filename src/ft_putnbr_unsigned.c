@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_givespace.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmogwere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 13:36:36 by pmogwere          #+#    #+#             */
-/*   Updated: 2019/09/14 13:38:02 by pmogwere         ###   ########.fr       */
+/*   Created: 2019/09/14 12:10:06 by pmogwere          #+#    #+#             */
+/*   Updated: 2019/09/14 12:11:35 by pmogwere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_printf.h"
 
-void	printstr(char **s, va_list args)
+void		ft_putnbr_unsigned(unsigned int n)
 {
-	(ft_strspn(&(*s[0]), "dicu")) ? outint(*s[0], args, 0, ' ') : 0;
-	(*s[0] == 's') ? outcharst(*s[0], args, 0, 0) : 0;
-	(ft_strspn(&(*s[0]), "oxX")) ? outuint(*s[0], args, 0, 0, 0) : 0;
-	(ft_strspn(&(*s[0]), "fFeEaAgG")) ? outdoub(*s[0], args, 0, 0) : 0;
+	// n = (n < 0) ? n * -1 : n;
+	if (n >= 10)
+	{
+		ft_putnbr_unsigned(n / 10);
+		ft_putchar_fd((n % 10) + '0', 1);
+	}
+	else
+		ft_putchar_fd(n + '0', 1);
 }
