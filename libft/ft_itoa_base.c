@@ -35,8 +35,9 @@ char		*ft_itoa_base(int value, int base, char h)
 		value *= -1;
 		(base == 10) ? len++ : 0;
 	}
-	str = (char *)malloc(sizeof(char) * len);
-	str[len--] = 0;
+	str = (char *)malloc(sizeof(char) * len + 2);
+	str[len] = 0;
+	len--;
 	while (value)
 	{
 		str[len--] = s[value % base];

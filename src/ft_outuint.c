@@ -60,5 +60,15 @@ void				outuint(char s, va_list args, char hex, int space,\
 	if (i != 0)
 		printx(s, hex);
 	ft_putstr(str);
+	// printf("%s", ft_itoa_base((int)i, 16, s));
+	free(str);
+	(void)s;
 	(void)j;
+	(void)i;
+	(void)args;
+	(void)length;
+	(void)space;
+	(void)hex;
+	(void)printx;
+	(void)str;
 }
