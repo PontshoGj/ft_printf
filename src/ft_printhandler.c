@@ -20,18 +20,10 @@ static void	paddhandler2(char **str, va_list args)
 	if (*str[0] == '.')
 	{
 		*str += 2;
-		if (*str[0] == 'f')
-			outdoub(*str[0], args, va_arg(args, int), va_arg(args, int));
-		else if (*str[0] == 's')
-			outcharst(*str[0], args, va_arg(args, int), va_arg(args, int));
-		else if (*str[0] == 'x' || *str[0] == 'X' || *str[0] == 'o')
-		{
-			i = va_arg(args, int);
-			(void)va_arg(args, int);
-			outuint(*str[0], args, 0, i, 0);
-		}
-		else if (*str[0] == 'd' || *str[0] == 'i')
-			outint(*str[0], args, va_arg(args, int), ' ');
+		(*str[0] == 'f') ? outdoub(*str[0], args, va_arg(args, int), va_arg(args, int)) : i++;
+		(*str[0] == 's' && i == 1) ? outcharst(*str[0], args, va_arg(args, int), va_arg(args, int)) : i++;
+		((*str[0] == 'x' || *str[0] == 'X' || *str[0] == 'o') && i == 2) ? outuint(*str[0], args, 0, va_arg(args, int), 0) : i++;
+		((*str[0] == 'd' || *str[0] == 'i' ) && i == 3) ? outint(*str[0], args, va_arg(args, int), ' ') : i++;
 	}
 }
 
@@ -40,25 +32,21 @@ static void	paddhandler(char **str, va_list args)
 	int		i;
 
 	i = 0;
-	(void)i;
-	if (*str[0] == 'f')
-		outdoub(*str[0], args, va_arg(args, int), 0);
-	else if (*str[0] == 's')
-		outcharst(*str[0], args, va_arg(args, int), 0);
-	else if (*str[0] == '.')
-		paddhandler2(str, args);
-	else if (*str[0] == 'x' || *str[0] == 'X' || *str[0] == 'o')
-		outuint(*str[0], args, 0, va_arg(args, int), 0);
-	else if (*str[0] == 'd' || *str[0] == 'i' || *str[0] == 'u')
-		outint(*str[0], args, va_arg(args, int), ' ');
+	(*str[0] == 'f' && i == 0) ? outdoub(*str[0], args, va_arg(args, int), 0) : i++;
+	(*str[0] == 's' && i == 1) ? outcharst(*str[0], args, va_arg(args, int), 0) : i++;
+	(*str[0] == '.' && i == 2) ? paddhandler2(str, args) : i++;
+	((*str[0] == 'x' || *str[0] == 'X' || *str[0] == 'o') && i == 3) ? outuint(*str[0], args, 0, va_arg(args, int), 0) : i++;
+	((*str[0] == 'd' || *str[0] == 'i' || *str[0] == 'u') && i == 4) ? outint(*str[0], args, va_arg(args, int), ' ') : i++;
 }
 
-static void	printhandler2(char **str, va_list args)
+static void	prnthandler2(char **str, va_list args)
 {
 	if (ft_isdigit(*str[0]) || *str[0] == '-')
 		padd(str, args);
 	else if (*str[0] == '+')
 		ft_addplus((char **)str, args);
+	else if (*str[0] == '%')
+		ft_putchar('%');
 	else if (*str[0] == '.')
 	{
 		*str += 1;
@@ -67,32 +55,25 @@ static void	printhandler2(char **str, va_list args)
 	else if (*str[0] == '*')
 	{
 		*str += 1;
-		if (ft_strspn(&(*str[0]), ".fsdicoxXuf"))
-			paddhandler(str, args);
+		(ft_strspn(&(*str[0]), ".fsdicoxXuf")) ? paddhandler(str, args) : (void)0;
 	}
-	else if (*str[0] == '%')
-		ft_putchar('%');
 }
 
 void		printhandler(char **str, va_list args)
 {
-	if (ft_strspn(&(*str[0]), "dicsoxXuf"))
-		printstr(str, args);
-	// else if (ft_strspn(&(*str[0]), "l") == 1)
-	// 	ft_printlong(str, args, 0);
-	// else if (ft_strspn(&(*str[0]), "h"))
-	// 	ft_printshort(str, args, 0);
-	// else if (ft_strspn(*str, "#"))
-	// {
-	// 	*str += 1;
-	// 	if (ft_strspn(&(*str[0]), "oxX"))
-	// 		printxx(*str, args);
-	// }
-	// else if (*str[0] == '+' || *str[0] == '.' || *str[0] == '*')
-	// 	printhandler2(str, args);
-	else if (*str[0] == '%' || ft_isdigit(*str[0]) || *str[0] == '-')
-		printhandler2(str, args);
-	(void)paddhandler2;
-	(void)paddhandler;
+	int		i;
 
+	i = 0;
+	(ft_strspn(&(*str[0]), "dicsoxXuf")) ? printstr(str, args) : i++;
+	(ft_strspn(&(*str[0]), "l") == 1 && i == 1) ? ft_printlong(str, args, 0) : i++;
+	(ft_strspn(&(*str[0]), "h") && i == 2) ? ft_printshort(str, args, 0) : i++;
+	if (ft_strspn(*str, "#") && i == 3) 
+	{
+		*str += 1;
+		(ft_strspn(&(*str[0]), "oxX")) ? printxx(*str, args) : (void)0;
+	}else{
+		i++;
+	}
+	((*str[0] == '+' || *str[0] == '.' || *str[0] == '*') && i == 4) ? prnthandler2(str, args) : i++;
+	((*str[0] == '%' || ft_isdigit(*str[0]) || *str[0] == '-') && 1 == 5) ? prnthandler2(str, args) : i++;
 }

@@ -17,11 +17,11 @@ static void		ft_outpsh(short j, int space, char base, char hex)
 	if (space >= 0)
 	{
 		givespace(ft_intlen(j), space, ' ');
-		ft_putstr(ft_longtoa_base(ft_atoi(ft_nbrstr(j, 3)), base, hex));
+		ft_putstr(ft_long_itoa_base(ft_atoi(ft_nbrstr(j, 3)), base, hex));
 	}
 	else
 	{
-		ft_putstr(ft_longtoa_base(ft_atoi(ft_nbrstr(j, 100)), base, hex));
+		ft_putstr(ft_long_itoa_base(ft_atoi(ft_nbrstr(j, 100)), base, hex));
 		givespace(ft_intlen(j), space, ' ');
 	}
 }
@@ -31,12 +31,12 @@ static void		ft_outpshh(short j, int space, char base, char hex)
 	if (space >= 0)
 	{
 		givespace(ft_intlen(j), space, ' ');
-		ft_nbr2(ft_atoi(ft_longtoa_base(ft_atoi(ft_nbrstr(j, 100)), base,\
+		ft_nbr2(ft_atoi(ft_long_itoa_base(ft_atoi(ft_nbrstr(j, 100)), base,\
 		hex)), 3);
 	}
 	else
 	{
-		ft_nbr2(ft_atoi(ft_longtoa_base(ft_atoi(ft_nbrstr(j, 100)), base,\
+		ft_nbr2(ft_atoi(ft_long_itoa_base(ft_atoi(ft_nbrstr(j, 100)), base,\
 		hex)), 5);
 		givespace(ft_intlen(j), space, ' ');
 	}

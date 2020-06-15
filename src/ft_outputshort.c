@@ -17,9 +17,6 @@ void			ft_outputshort(va_list args, int space, char c)
 	long long	i;
 
 	(void)space;
-	if (c == 'l')
-		i = va_arg(args, int);
-	else
-		i = va_arg(args, long long);
+	i = (c == 'l') ? va_arg(args, int) : va_arg(args, long long);
 	ft_putnbrlong(i);
 }

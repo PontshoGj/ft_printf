@@ -48,12 +48,10 @@ void			ft_outputshortun(va_list args, int space, char c)
 	if (c == 'h')
 	{
 		i = va_arg(args, int);
-		j = (short)i;
-		ft_outpshh(j, space);
+		ft_outpshh((short)i, space);
 		return ;
 	}
 	i = va_arg(args, unsigned long long);
 	j = (short)i;
-	j = (char)j;
-	ft_outpsh(j, space);
+	ft_outpsh((char)j, space);
 }

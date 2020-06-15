@@ -17,10 +17,7 @@ void			ft_outputunsignedlong(va_list args, int space, char c)
 	long long	i;
 
 	(void)space;
-	if (c == 'l')
-		i = va_arg(args, long);
-	else
-		i = va_arg(args, unsigned long long);
+	i = (c == 'l') ? va_arg(args, long) : va_arg(args, unsigned long long);
 	ft_putnbrlong(i);
 }
 
@@ -30,10 +27,7 @@ void			ft_outputunsignedlonghex(va_list args, \
 	long long	i;
 
 	(void)space;
-	(void)hex;
-	if (c == 'l')
-		i = va_arg(args, unsigned long);
-	else
-		i = va_arg(args, unsigned long long);
-	ft_putstr(ft_longtoa_base(i, 8, hex));
+	i = (c == 'l') ? va_arg(args, unsigned long) : \
+		va_arg(args, unsigned long long);
+	ft_putstr(ft_long_itoa_base(i, 8, hex));
 }

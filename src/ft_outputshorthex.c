@@ -32,11 +32,11 @@ static void		ft_outpsh(long long i, int space, char hex)
 	if (space >= 0)
 	{
 		givespace(ft_intlen(i), space, ' ');
-		ft_putstr(ft_longtoa_base(i, 16, hex));
+		ft_putstr(ft_long_itoa_base(i, 16, hex));
 	}
 	else
 	{
-		ft_putstr(ft_longtoa_base(i, 16, hex));
+		ft_putstr(ft_long_itoa_base(i, 16, hex));
 		givespace(ft_intlen(i), space, ' ');
 	}
 }
@@ -46,11 +46,11 @@ static void		ft_outpshh(long long i, int space, char hex)
 	if (space >= 0)
 	{
 		givespace(ft_intlen(i), space, ' ');
-		ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
+		ft_putstr(ft_nbrstrhex(ft_long_itoa_base(i, 16, hex), 2));
 	}
 	else
 	{
-		ft_putstr(ft_nbrstrhex(ft_longtoa_base(i, 16, hex), 2));
+		ft_putstr(ft_nbrstrhex(ft_long_itoa_base(i, 16, hex), 2));
 		givespace(ft_intlen(i), space, ' ');
 	}
 }

@@ -19,7 +19,7 @@ static char		*bigrsmallhexlong(char s)
 	return ("0123456789abcdef");
 }
 
-char			*ft_longtoa_base(long long i, int base, char h)
+char			*ft_long_itoa_base(long long i, int base, char h)
 {
 	char		*s;
 	char		*str;

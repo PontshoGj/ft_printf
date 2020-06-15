@@ -29,10 +29,6 @@ void			ft_outputlonghex(va_list args, int space, char hex, char c)
 	long long	i;
 
 	(void)space;
-	(void)hex;
-	if (c == 'l')
-		i = va_arg(args, long);
-	else
-		i = va_arg(args, long long);
-	ft_putstr(ft_longtoa_base(i, 16, hex));
+	i = (c == 'l') ? va_arg(args, long) : va_arg(args, long long);
+	ft_putstr(ft_long_itoa_base(i, 16, hex));
 }
